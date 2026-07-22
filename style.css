@@ -1,71 +1,1054 @@
+/* ==========================================
+   बहती कहानियाँ
+   Style.css
+   Part 1 - Base + Hero + Navigation
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap');
+
+:root{
+
+--primary:#0d1b2a;
+--secondary:#1b263b;
+--accent:#b88a44;
+--paper:#f8f5ef;
+--white:#ffffff;
+--text:#2b2b2b;
+--light:#f1ede5;
+--shadow:0 12px 40px rgba(0,0,0,.12);
+
+}
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
 body{
-    margin:0;
-    padding:0;
-    background:#f6f1e8;
-    color:#2d2d2d;
-    font-family:"Nirmala UI","Mangal",serif;
-    line-height:1.8;
+
+background:var(--paper);
+
+color:var(--text);
+
+font-family:"Noto Serif Devanagari",serif;
+
+line-height:1.8;
+
+overflow-x:hidden;
+
 }
 
-header{
-    text-align:center;
-    padding:70px 20px;
+/* ================= HEADER ================= */
+
+.hero{
+
+min-height:100vh;
+
+background:
+
+linear-gradient(rgba(8,18,33,.65),rgba(8,18,33,.65)),
+url("images/river.jpg");
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+padding:40px;
+
 }
 
-h1{
-    font-size:52px;
-    margin:0;
-    font-weight:normal;
+.hero-box{
+
+max-width:900px;
+
+text-align:center;
+
+color:white;
+
+animation:fadeUp 1.2s ease;
+
 }
 
-.quote{
-    color:#777;
-    font-style:italic;
-    margin-top:15px;
+.hero h1{
+
+font-size:70px;
+
+margin-bottom:20px;
+
+font-weight:700;
+
+letter-spacing:2px;
+
 }
+
+.tagline{
+
+font-size:28px;
+
+opacity:.95;
+
+margin-bottom:30px;
+
+}
+
+.intro{
+
+font-size:19px;
+
+opacity:.8;
+
+margin-bottom:45px;
+
+}
+
+/* ================= NAVIGATION ================= */
+
+nav{
+
+display:flex;
+
+justify-content:center;
+
+gap:25px;
+
+flex-wrap:wrap;
+
+}
+
+nav a{
+
+text-decoration:none;
+
+color:white;
+
+padding:12px 22px;
+
+border-radius:40px;
+
+transition:.35s;
+
+font-size:16px;
+
+border:1px solid rgba(255,255,255,.15);
+
+backdrop-filter:blur(10px);
+
+}
+
+nav a:hover{
+
+background:rgba(255,255,255,.15);
+
+transform:translateY(-3px);
+
+}
+
+/* ================= CONTAINER ================= */
 
 .container{
-    max-width:850px;
-    margin:auto;
-    padding:25px;
+
+width:90%;
+
+max-width:1200px;
+
+margin:auto;
+
+padding:90px 0;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+gap:35px;
+
 }
 
+/* ================= CARD ================= */
+
 .card{
-    background:white;
-    margin:25px 0;
-    padding:25px;
-    border-radius:14px;
-    box-shadow:0 6px 18px rgba(0,0,0,.08);
-    transition:.3s;
+
+background:var(--white);
+
+padding:35px;
+
+border-radius:22px;
+
+box-shadow:var(--shadow);
+
+transition:.35s;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.card::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:5px;
+
+background:linear-gradient(to right,#caa35b,#f2d091);
+
 }
 
 .card:hover{
-    transform:translateY(-4px);
+
+transform:translateY(-10px);
+
 }
 
-a{
-    color:#333;
-    text-decoration:none;
+.card h2{
+
+color:var(--primary);
+
+margin-bottom:15px;
+
+font-size:30px;
+
 }
 
-a:hover{
-    color:#8b5a2b;
+.card h3{
+
+margin-bottom:18px;
+
+font-size:24px;
+
 }
+
+.card p{
+
+font-size:18px;
+
+color:#555;
+
+}
+
+/* ================= BUTTON ================= */
+
+.button{
+
+display:inline-block;
+
+margin-top:25px;
+
+padding:14px 32px;
+
+background:var(--accent);
+
+color:white;
+
+text-decoration:none;
+
+border-radius:40px;
+
+transition:.35s;
+
+font-weight:600;
+
+}
+
+.button:hover{
+
+background:#926c31;
+
+transform:translateY(-3px);
+
+}
+
+/* ================= FEATURED ================= */
+
+.featured{
+
+grid-column:span 2;
+
+background:linear-gradient(135deg,#fff,#f7efe2);
+
+}
+
+.featured h3{
+
+font-size:34px;
+
+}
+
+/* ================= BOOK ================= */
+
+.book{
+
+background:#0d1b2a;
+
+color:white;
+
+}
+
+.book h2,
+.book h3{
+
+color:white;
+
+}
+
+.book p{
+
+color:#ddd;
+
+}
+
+/* ================= AUTHOR ================= */
+
+.author{
+
+background:#faf6ee;
+
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+/* ==========================================
+   बहती कहानियाँ
+   Style.css
+   Part 2 - Sections + Lists + Footer
+========================================== */
+
+
+/* ---------- Story List ---------- */
+
+.card ul{
+
+list-style:none;
+
+margin-top:20px;
+
+}
+
+.card li{
+
+padding:14px 0;
+
+border-bottom:1px solid rgba(0,0,0,.08);
+
+font-size:18px;
+
+transition:.3s;
+
+}
+
+.card li:last-child{
+
+border:none;
+
+}
+
+.card li:hover{
+
+padding-left:12px;
+
+}
+
+.card li a{
+
+text-decoration:none;
+
+color:var(--primary);
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.card li a:hover{
+
+color:var(--accent);
+
+}
+
+
+/* ---------- Author Card ---------- */
+
+.author{
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+}
+
+.author h3{
+
+margin:20px 0;
+
+font-size:32px;
+
+}
+
+.author p{
+
+font-size:19px;
+
+}
+
+
+/* ---------- Book Card ---------- */
+
+.book{
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:flex-start;
+
+}
+
+.book strong{
+
+display:inline-block;
+
+margin-top:25px;
+
+padding:8px 18px;
+
+background:rgba(255,255,255,.12);
+
+border-radius:30px;
+
+letter-spacing:1px;
+
+}
+
+
+/* ---------- Featured ---------- */
+
+.featured p{
+
+font-size:20px;
+
+margin-top:15px;
+
+}
+
+
+/* ---------- Section Title ---------- */
+
+section h2{
+
+position:relative;
+
+padding-bottom:12px;
+
+}
+
+section h2::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:0;
+
+width:70px;
+
+height:4px;
+
+background:var(--accent);
+
+border-radius:10px;
+
+}
+
+
+/* ---------- Footer ---------- */
 
 footer{
-    text-align:center;
-    color:#777;
-    padding:50px;
+
+background:var(--primary);
+
+color:white;
+
+margin-top:80px;
+
+padding:60px 20px;
+
+text-align:center;
+
 }
 
-@media(max-width:700px){
+footer p{
 
-h1{
+margin:10px 0;
+
+font-size:18px;
+
+opacity:.9;
+
+}
+
+footer::before{
+
+content:"❦";
+
+display:block;
+
 font-size:34px;
+
+color:var(--accent);
+
+margin-bottom:18px;
+
+}
+
+
+/* ---------- Scrollbar ---------- */
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#ece6dc;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:var(--accent);
+
+border-radius:10px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#926c31;
+
+}
+
+
+/* ---------- Selection ---------- */
+
+::selection{
+
+background:var(--accent);
+
+color:white;
+
+}
+
+
+/* ---------- Images ---------- */
+
+img{
+
+max-width:100%;
+
+display:block;
+
+border-radius:18px;
+
+}
+
+
+/* ---------- Links ---------- */
+
+a{
+
+transition:.3s;
+
+}
+
+
+/* ---------- Small Fade ---------- */
+
+.card{
+
+opacity:0;
+
+animation:cardFade .8s forwards;
+
+}
+
+.card:nth-child(2){
+
+animation-delay:.2s;
+
+}
+
+.card:nth-child(3){
+
+animation-delay:.4s;
+
+}
+
+.card:nth-child(4){
+
+animation-delay:.6s;
+
+}
+
+.card:nth-child(5){
+
+animation-delay:.8s;
+
+}
+
+@keyframes cardFade{
+
+from{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+/* ---------- Quote Style ---------- */
+
+blockquote{
+
+font-size:22px;
+
+font-style:italic;
+
+border-left:4px solid var(--accent);
+
+padding-left:20px;
+
+margin:30px 0;
+
+color:#555;
+
+}
+
+
+/* ---------- Horizontal Line ---------- */
+
+hr{
+
+border:none;
+
+height:1px;
+
+background:#ddd;
+
+margin:50px 0;
+
+}
+/* ==========================================
+   बहती कहानियाँ
+   Style.css
+   Part 3 - Responsive + Premium Effects
+========================================== */
+
+
+/* ================= Hover Glow ================= */
+
+.card:hover{
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.15);
+
+}
+
+
+/* ================= Hero Decoration ================= */
+
+.hero::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+right:0;
+bottom:0;
+
+height:140px;
+
+background:linear-gradient(
+transparent,
+var(--paper)
+);
+
+}
+
+
+/* ================= Floating Animation ================= */
+
+.featured{
+
+animation:floatCard 6s ease-in-out infinite;
+
+}
+
+@keyframes floatCard{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+
+/* ================= Navigation Underline ================= */
+
+nav a{
+
+position:relative;
+
+}
+
+nav a::after{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+bottom:5px;
+
+width:0;
+
+height:2px;
+
+background:white;
+
+transition:.35s;
+
+transform:translateX(-50%);
+
+}
+
+nav a:hover::after{
+
+width:65%;
+
+}
+
+
+/* ================= Card Icons ================= */
+
+.card h2{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+}
+
+
+/* ================= Typography ================= */
+
+h1,h2,h3{
+
+font-weight:700;
+
+line-height:1.3;
+
+}
+
+p{
+
+line-height:1.9;
+
+}
+
+
+/* ================= Glass Effect ================= */
+
+.hero-box{
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(12px);
+
+padding:50px;
+
+border-radius:25px;
+
+border:1px solid rgba(255,255,255,.15);
+
+}
+
+
+/* ================= Button ================= */
+
+.button{
+
+letter-spacing:.5px;
+
+}
+
+.button:hover{
+
+letter-spacing:1px;
+
+}
+
+
+/* ================= Footer ================= */
+
+footer{
+
+background:linear-gradient(
+180deg,
+#14213d,
+#0d1b2a
+);
+
+}
+
+footer a{
+
+color:#ddd;
+
+text-decoration:none;
+
+}
+
+footer a:hover{
+
+color:white;
+
+}
+
+
+/* ================= Responsive ================= */
+
+@media (max-width:992px){
+
+.hero h1{
+
+font-size:52px;
+
+}
+
+.tagline{
+
+font-size:23px;
+
 }
 
 .container{
-padding:15px;
+
+grid-template-columns:1fr;
+
+}
+
+.featured{
+
+grid-column:auto;
+
 }
 
 }
+
+
+@media (max-width:768px){
+
+.hero{
+
+padding:20px;
+
+background-attachment:scroll;
+
+}
+
+.hero-box{
+
+padding:30px;
+
+}
+
+.hero h1{
+
+font-size:42px;
+
+}
+
+.tagline{
+
+font-size:20px;
+
+}
+
+.intro{
+
+font-size:16px;
+
+}
+
+nav{
+
+gap:10px;
+
+}
+
+nav a{
+
+padding:10px 16px;
+
+font-size:14px;
+
+}
+
+.card{
+
+padding:25px;
+
+}
+
+.card h2{
+
+font-size:26px;
+
+}
+
+.card h3{
+
+font-size:22px;
+
+}
+
+.button{
+
+display:block;
+
+text-align:center;
+
+width:100%;
+
+}
+
+}
+
+
+@media (max-width:480px){
+
+.hero h1{
+
+font-size:34px;
+
+}
+
+.tagline{
+
+font-size:18px;
+
+}
+
+.intro{
+
+display:none;
+
+}
+
+footer{
+
+padding:40px 20px;
+
+}
+
+}
+
+
+/* ================= Smooth Appearance ================= */
+
+body{
+
+animation:pageLoad 1s ease;
+
+}
+
+@keyframes pageLoad{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+
+/* ================= End ================= */
